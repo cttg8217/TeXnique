@@ -1,5 +1,5 @@
-let TIMEOUT_SECONDS = 180;
-let TIMEOUT_STRING = "three minutes";
+let TIMEOUT_SECONDS = 600;
+let TIMEOUT_STRING = "ten minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
 let gameTimer;
