@@ -44,19 +44,22 @@
     <div id="container">
         <p id="title" class="centered-text"> \(\text{\TeX nique}\) </p>
         <p id="subtitle" class="centered-text"> \(\text{A \LaTeX \, Typesetting Game}\) </p>
-
+		<p id="subtitle" class="centered-text"> \(\text{...Modified by Binary Tree}\) </p>
         <br>
         <br>
 
         <div id="intro-window">
             <p id="intro-text"></p>
 
-            <br><br>
+            <br>
 
             <button id="start-button-timed" class="latex-button">Timed Game</button>
             <button id="start-button-untimed" class="latex-button">Zen Mode</button>
+			
+			<br><br>
+			<input id="timeout-input" name="my_name" size="20" placeholder="300(seconds)">
 
-            <br><br><br>
+            <br><br>
 
             <div id="hint-text">
               <b>Hints:</b>
@@ -82,10 +85,11 @@
             Play again?
 
             <br><br>
-
             <button id="reset-button-timed" class="latex-button">Timed Game</button>
             <button id="reset-button-untimed" class="latex-button">Zen Mode</button>
 
+			<br><br>
+			<input id="timeout-input" name="my_name" size="20" placeholder="Time(Seconds)">
             <br><br>
 
             <span id="show-skipped-message">Check out the problems you skipped?</span>
