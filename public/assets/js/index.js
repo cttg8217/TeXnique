@@ -2,6 +2,8 @@ let TIMEOUT_SECONDS = 600;
 let TIMEOUT_STRING = "ten minutes";
 let secondsRemaining = TIMEOUT_SECONDS;
 
+let mode = "intro"
+
 let gameTimer;
 let oldVal;
 let problemNumber = 0;
@@ -75,6 +77,7 @@ function toggleShowSkipped() {
 }
 
 function showIntro() {
+	mode = "intro";
     $("#game-window").hide();
     $("#ending-window").hide();
     $("#intro-window").show();
@@ -98,6 +101,8 @@ function endGame() {
     $("#game-window").hide();
     $("#ending-window").show();
     displayLaTeXInBody();
+
+	mode = "outro";
 
     let problemsText = numCorrect + ((numCorrect == 1) ? " problem" : " problems");
     let endingText = "You finished " + problemsText + " for a total score of " + currentScore + " in " + TIMEOUT_SECONDS + " seconds!";
@@ -139,6 +144,7 @@ function endGame() {
 
 
 function startGame(useTimer) {
+	console.log(mode);
     problemNumber = 0;
     currentScore = 0;
     numCorrect = 0;
@@ -147,18 +153,7 @@ function startGame(useTimer) {
     shuffleArray(problemsOrder);
     skippedProblems = [];
 
-	TIMEOUT_SECONDS = "";
-	var timeout_input_elements = document.getElementsByClassName("timeout-input");
-	for(var i = 0; i < timeout_input_elements.length; i++) {
-		element = timeout_input_elements[i];
-		if(window.getComputedStyle(x).visibility === "visible")
-		{
-			TIMEOUT_SECONDS = element.value;
-			break;
-		}
-	}
-
-	TIMEOUT_SECONDS = document.getElementById('timeout-input').value;
+	TIMEOUT_SECONDS = document.getElementById(mode+"-timeout-input").value;
 	if (!TIMEOUT_SECONDS) {
 		TIMEOUT_SECONDS = "300";
 	}
@@ -306,7 +301,7 @@ function validateProblem() {
 $(document).ready(function() {
     // Handlers
     $("#start-button-timed").click(function() {
-        startGame(true);
+        startGame(true, $("#start-button-timed").mode);
     });
 
     $("#start-button-untimed").click(function() {
