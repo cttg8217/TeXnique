@@ -634,7 +634,7 @@ let problems = [
 	{
 		"title": "Equation of a Torus",
 		"description": "yum, donuts",
-		"latex": String.raw`(\sqrt{x^2 + y^2} - R)^2 + z^2 = r`
+		"latex": String.raw`(\sqrt{x^2 + y^2} - R)^2 + z^2 = r^2`
 	},
 	{
 		"title": "Ampère-Maxwell law",
